@@ -1,7 +1,7 @@
 import React from 'react';
 import './search-panel.css';
 
-import ItemStatusFilter from './item-status-filter';
+import ItemStatusFilter from '../item-status-filter';
 
 const SearchPanel = () => (
   <div className="d-flex p-2">
