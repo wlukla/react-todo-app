@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 import './search-panel.css';
 
 const SearchPanel = (props) => (
-  <div className="d-flex p-2">
-    <input
-      className="form-control search-input mr-2"
-      type="text"
-      placeholder="Start typing task name..."
-      onChange={(e) => props.onSearchChange(e.target.value)}
-    />
-  </div>
+  <input
+    className="form-control mr-2 d-flex p-2 search-input"
+    type="text"
+    placeholder="Start typing task name..."
+    onChange={(e) => props.onSearchChange(e.target.value)}
+  />
 );
 
 SearchPanel.propTypes = {

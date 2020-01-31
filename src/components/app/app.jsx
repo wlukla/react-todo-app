@@ -125,7 +125,7 @@ class App extends React.Component {
     return (
       <div className="container border border-primary rounded w-50 mt-5 p-5">
         <AppHeader todo={todoCount} done={doneCount} />
-        <div className="d-flex">
+        <div className="d-flex mb-2">
           <SearchPanel onSearchChange={this.updateFilter} />
           <ItemStatusFilter
             filter={mode}
