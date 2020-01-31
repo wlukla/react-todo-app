@@ -1,11 +1,41 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const ItemStatusFilter = () => (
-  <div className="btn-group">
-    <button type="button" className="btn btn-primary">All</button>
-    <button type="button" className="btn btn-outline-primary">Active</button>
-    <button type="button" className="btn btn-outline-primary">Done</button>
-  </div>
-);
+export default class ItemStatusFilter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.buttons = [
+      { name: 'all', label: 'All' },
+      { name: 'active', label: 'Active' },
+      { name: 'done', label: 'Done' },
+    ];
+    this.state = {}; // !!!
+  }
 
-export default ItemStatusFilter;
+  render() {
+    const buttons = this.buttons.map(({ name, label }) => {
+      const { filter, onFilterChange } = this.props;
+      const classNames = name === filter ? 'btn btn-primary' : 'btn btn-outline-secondary';
+      return (
+        <button
+          type="button"
+          className={classNames}
+          key={name}
+          onClick={() => onFilterChange(name)}
+        >
+          {label}
+        </button>
+      );
+    });
+    return (
+      <div className="btn-group m-2">
+        {buttons}
+      </div>
+    );
+  }
+}
+
+ItemStatusFilter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  onFilterChange: PropTypes.func.isRequired,
+};
